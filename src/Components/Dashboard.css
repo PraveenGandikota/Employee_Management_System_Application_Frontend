@@ -1,0 +1,495 @@
+/* General Styling
+.dashboard-container {
+  display: flex;
+  height: 100vh;  Full viewport height 
+  width: 100vw;  Full viewport width 
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden; / Prevent overflow from breaking the layout *
+}
+
+* Sidebar Styling *
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  position: fixed;
+  height: 100vh; * Ensure sidebar covers full viewport height *
+  top: 0;
+  left: 0;
+  padding-top: 60px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; * Ensure scrolling if content is taller than the viewport *
+  z-index: 10;
+}
+
+* Sidebar Header *
+.sidebar-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-title {
+  display: block;
+  padding: 10px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+* Navigation List *
+.nav-list {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; * Allow the list to take up the remaining space *
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-list li {
+  margin-bottom: 15px;
+}
+
+.nav-list a {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-list a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.nav-list a i {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+* Logout Button - Fixed at the Bottom *
+.logout {
+  margin-top: auto; * Push the logout button to the bottom of the sidebar *
+  position: relative;
+  transition: none; * Remove any unnecessary transition effects *
+}
+
+.logout a {
+  background: #e74c3c;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout a:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+* Sidebar Closed Class *
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+* Main Content Styling *
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px; * Adjusted based on sidebar width *
+  transition: margin-left 0.3s ease-in-out;
+  width: 100vw; * Full width of the viewport *
+  height: 100vh; * Full viewport height *
+  overflow-y: auto; / Allow scrolling if content exceeds the viewport height *
+}
+
+.main-content.shifted {
+  margin-left: 0;
+  width: 100%; / Adjust to full width when sidebar is closed *
+  height: 100vh; / Ensure full height *
+}
+
+* Header *
+.header {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/Navbar Icon *
+.navbar-icon {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 30px;
+  color: #34495e;
+  cursor: pointer;
+  z-index: 1050;
+  background-color: #c0392b;
+}
+
+/ Close Icon (✖) inside Sidebar *
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+* Responsive Design for Different Screen Sizes *
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    height: calc(100vh - 60px); / Ensure full height, excluding header *
+  }
+
+  / Make sidebar collapsible on small screens /
+  .sidebar.closed {
+    transform: translateX(-250px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .navbar-icon {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    height: calc(100vh - 60px); * Ensure full height for smaller screens *
+  }
+
+  .sidebar-header {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 180px; * Smaller sidebar width on mobile *
+  }
+
+  .sidebar-header {
+    font-size: 18px;
+  }
+
+  .main-content {
+    height: calc(100vh - 60px); / Ensure full height *
+    padding: 10px;
+  }
+
+  * Adjust the spacing and layout for small screens *
+  .content {
+    padding: 15px;
+  }
+} */
+
+
+
+
+
+/* General Styling */
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden; /* Prevent overflow from breaking the layout */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  position: fixed;
+  height: 100vh; /* Ensure sidebar covers full viewport height */
+  top: 0;
+  left: 0;
+  padding-top: 60px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Ensure scrolling if content is taller than the viewport */
+  z-index: 10;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-title {
+  display: block;
+  padding: 10px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+/* Navigation List */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; /* Allow the list to take up the remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-list li {
+  margin-bottom: 15px;
+}
+
+.nav-list a {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-list a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.nav-list a i {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+/* Logout Button - Fixed at the Bottom */
+.logout {
+  margin-top: auto; /* Push the logout button to the bottom of the sidebar */
+  position: relative;
+  transition: none; /* Remove any unnecessary transition effects */
+}
+
+.logout a {
+  background: #e74c3c;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.logout a:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+/* Sidebar Closed Class */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px; /* Adjusted based on sidebar width */
+  transition: margin-left 0.3s ease-in-out;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Allow scrolling if content exceeds the viewport height */
+}
+
+.main-content.shifted {
+  margin-left: 0;
+  width: 100%; /* Adjust to full width when sidebar is closed */
+  height: 100vh; /* Ensure full height */
+}
+
+/* Header */
+.header {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar Icon */
+.navbar-icon {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 30px;
+  color: #34495e;
+  cursor: pointer;
+  z-index: 1050;
+  background-color: #c0392b;
+}
+
+/* Close Icon (✖) inside Sidebar */
+.close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* .logopg{
+  height: 30px;
+  width: 30px;
+}
+
+.logo-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+} */
+
+
+.logo-container {
+  display: flex;
+  align-items: center; /* Ensures vertical centering */
+  gap: 5px; /* Space between logo and text */
+  padding: 15px;
+}
+
+.logopg {
+  height: 40px;
+  width: 40px;
+  display: block; /* Prevents inline alignment issues */
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center; /* Align text to match image */
+  font-size: 20px; /* Adjust if needed */
+
+  padding-top: 33px;
+}
+
+/* Responsive Design for Different Screen Sizes */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    height: calc(100vh - 60px); /* Ensure full height, excluding header */
+  }
+
+  /* Make sidebar collapsible on small screens */
+  .sidebar.closed {
+    transform: translateX(-250px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .navbar-icon {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    height: calc(100vh - 60px); /* Ensure full height for smaller screens */
+  }
+
+  .sidebar-header {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 180px; /* Smaller sidebar width on mobile */
+  }
+
+  .sidebar-header {
+    font-size: 18px;
+  }
+
+  .main-content {
+    height: calc(100vh - 60px); /* Ensure full height */
+    padding: 10px;
+  }
+
+  /* Adjust the spacing and layout for small screens */
+  .content {
+    padding: 15px;
+  }
+}
+
